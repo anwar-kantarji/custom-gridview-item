@@ -21,12 +21,10 @@ class MyApp extends StatelessWidget {
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int rowCount = MediaQuery.of(context).size.width < 650 ? 2 : 3;
-
-    double width = MediaQuery.of(context).size.width < 1000
-        ? MediaQuery.of(context).size.width
-        : 1000;
-    double size = width / rowCount;
+    double screenWidth = MediaQuery.of(context).size.width;
+    int rowCount = screenWidth < 650 ? 2 : 3;
+    double gridViewWidth = screenWidth < 1000 ? screenWidth : 1000;
+    double itemSize = gridViewWidth / rowCount;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red.shade900,
@@ -36,22 +34,22 @@ class MainPage extends StatelessWidget {
       drawer: Drawer(),
       body: Center(
         child: Container(
-          width: width,
+          width: screenWidth,
           child: GridView.count(
             crossAxisCount: rowCount,
             children: [
-              GridItem(size: size, title: 'SKYSCRAPER', imgs: skyscraper),
-              GridItem(size: size, title: 'CARS', imgs: cars),
-              GridItem(size: size, title: 'ANIMALS', imgs: animals),
-              GridItem(size: size, title: 'FLOWERS', imgs: flowers),
-              GridItem(size: size, title: 'SKYSCRAPER', imgs: skyscraper),
-              GridItem(size: size, title: 'CARS', imgs: cars),
-              GridItem(size: size, title: 'ANIMALS', imgs: animals),
-              GridItem(size: size, title: 'FLOWERS', imgs: flowers),
-              GridItem(size: size, title: 'SKYSCRAPER', imgs: skyscraper),
-              GridItem(size: size, title: 'CARS', imgs: cars),
-              GridItem(size: size, title: 'ANIMALS', imgs: animals),
-              GridItem(size: size, title: 'FLOWERS', imgs: flowers),
+              GridItem(size: itemSize, title: 'SKYSCRAPER', imgs: skyscraper),
+              GridItem(size: itemSize, title: 'CARS', imgs: cars),
+              GridItem(size: itemSize, title: 'ANIMALS', imgs: animals),
+              GridItem(size: itemSize, title: 'FLOWERS', imgs: flowers),
+              GridItem(size: itemSize, title: 'SKYSCRAPER', imgs: skyscraper),
+              GridItem(size: itemSize, title: 'CARS', imgs: cars),
+              GridItem(size: itemSize, title: 'ANIMALS', imgs: animals),
+              GridItem(size: itemSize, title: 'FLOWERS', imgs: flowers),
+              GridItem(size: itemSize, title: 'SKYSCRAPER', imgs: skyscraper),
+              GridItem(size: itemSize, title: 'CARS', imgs: cars),
+              GridItem(size: itemSize, title: 'ANIMALS', imgs: animals),
+              GridItem(size: itemSize, title: 'FLOWERS', imgs: flowers),
             ],
           ),
         ),
